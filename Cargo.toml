@@ -6,7 +6,7 @@ description = "A performances testing library"
 license = "GPL-2.0-or-later"
 categories = ["development-tools"]
 repository = "https://github.com/taishingi/performances-testing"
-documentation = "https://docs.rs/performances-testing/"
+documentation = "https://docs.rs/perform    ances-testing/"
 
 [lib]
 name = "performances"

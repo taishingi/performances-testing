@@ -4,6 +4,10 @@
 cargo add performances-testing
 ```
 
+ <img title="" src="file:///home/juwishmaster/Documents/performances-testing/perf-testing-take.gif" alt="" data-align="inline">
+
+
+
 ## Usage
 
 ```rust
