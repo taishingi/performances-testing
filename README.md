@@ -4,9 +4,7 @@
 cargo add performances-testing
 ```
 
- <img title="" src="file:///home/juwishmaster/Documents/performances-testing/perf-testing-take.gif" alt="" data-align="inline">
-
-
+<img title="performances testing output" src="https://raw.githubusercontent.com/taishingi/performances-testing/master/perf-testing-take.gif" alt="performances-testing output" data-align="inline">
 
 ## Usage
 
