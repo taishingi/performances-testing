@@ -2,11 +2,12 @@ pub mod performances {
     use colored_truecolor::Colorize;
     use std::collections::HashMap;
     use std::time::Instant;
+
     pub struct Performances {}
 
     impl Default for Performances {
         fn default() -> Self {
-            Self::new("Performances testing")
+            Self::new()
         }
     }
 
@@ -17,8 +18,8 @@ pub mod performances {
         ///
         /// Constructor
         ///
-        pub fn new(description: &str) -> Performances {
-            println!("\n{}\n", description.magenta().bold());
+        pub fn new() -> Performances {
+            println!();
             Self {}
         }
 
@@ -39,8 +40,10 @@ pub mod performances {
                     end,
                     v
                 );
+                Performances::output("The callback take less than the expected max time");
             }
-            self.output()
+            Performances::output("End of f32 callback measure test");
+            self
         }
 
         ///
@@ -60,8 +63,10 @@ pub mod performances {
                     end,
                     v
                 );
+                Performances::output("The callback take less than the expected max time");
             }
-            self.output()
+            Performances::output("End of f64 callback measure test");
+            self
         }
 
         ///
@@ -81,8 +86,10 @@ pub mod performances {
                     end,
                     v
                 );
+                Performances::output("The callback take less than the expected max time");
             }
-            self.output()
+            Performances::output("End of nanos callback measure test");
+            self
         }
 
         ///
@@ -101,8 +108,10 @@ pub mod performances {
                     end,
                     v
                 );
+                Performances::output("The callback take less than the expected max time");
             }
-            self.output()
+            Performances::output("End of micros callback measure test");
+            self
         }
 
         ///
@@ -121,8 +130,10 @@ pub mod performances {
                     end,
                     v
                 );
+                Performances::output("The callback take less than the expected max time");
             }
-            self.output()
+            Performances::output("End of millis callback measure test");
+            self
         }
 
         ///
@@ -137,20 +148,21 @@ pub mod performances {
                 let end: u64 = now.elapsed().as_secs();
                 assert!(
                     end < v,
-                    "A callback take {} ms and the expected time is {} ms",
+                    "A callback take {} secs and the expected time is {} secs",
                     end,
                     v
                 );
+                Performances::output("The callback take less than the expected max time");
             }
-            self.output()
+            Performances::output("End of secs callback measure test");
+            self
         }
 
         ///
-        /// # Print a point in console after a test runned successfully
+        /// # Print a point in console after a test run successfully
         ///
-        fn output(&mut self) -> &mut Performances {
-            print!("{}", ".".white().bold());
-            self
+        fn output(x: &str) {
+            println!("     {}", format!("{} {}", "[ ✓ ]".green().bold(), x.blue().bold()).as_str());
         }
 
         ///

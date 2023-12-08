@@ -1,12 +1,13 @@
 [package]
-name = "testing_performance"
-version = "0.1.5"
+name = "performances-testing"
+version = "0.0.2"
 edition = "2021"
 description = "A performances testing library"
 license = "GPL-2.0-or-later"
 categories = ["development-tools"]
-repository = "https://github.com/taishingi/zuu/tree/master/testing_performance"
-documentation = "https://docs.rs/testing_performance/"
+repository = "https://github.com/taishingi/performances-testing"
+documentation = "https://docs.rs/performance-testing/"
+
 [lib]
 name = "performances"
 path = "src/performances.rs"
