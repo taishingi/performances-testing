@@ -4,7 +4,7 @@
 cargo add performances-testing
 ```
 
-![build status](badges/build.svg) ![tests status](badges/tests.svg) ![clippy status](badges/clippy.svg) ![documenttion build](badges/documentation.svg) ![check status](badges/check.svg)
+![build status](https://raw.githubusercontent.com/taishingi/performances-testing/master/badges/build.svg) ![tests status](https://raw.githubusercontent.com/taishingi/performances-testing/master/badges/tests.svg) ![clippy status](https://raw.githubusercontent.com/taishingi/performances-testing/master/badges/clippy.svg) ![documentation build](https://raw.githubusercontent.com/taishingi/performances-testing/master/badges/documentation.svg) ![check status](https://raw.githubusercontent.com/taishingi/performances-testing/master/badges/check.svg)
 
 
 
