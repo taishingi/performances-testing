@@ -4,6 +4,12 @@
 cargo add performances-testing
 ```
 
+![build status](badges/build.svg) ![tests status](badges/tests.svg) ![clippy status](badges/clippy.svg) ![documenttion build](badges/documentation.svg) ![check status](badges/check.svg)
+
+
+
+
+
 <img title="performances testing output" src="https://raw.githubusercontent.com/taishingi/performances-testing/master/perf-testing-take.gif" alt="performances-testing output" data-align="inline">
 
 ## Usage
@@ -74,5 +80,5 @@ pub fn main() -> ExitCode {
 ### Run test
 
 ```bash
-cargo run 
+cargo run     
 ```

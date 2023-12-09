@@ -162,7 +162,10 @@ pub mod performances {
         /// # Print a point in console after a test run successfully
         ///
         fn output(x: &str) {
-            println!("     {}", format!("{} {}", "[ ✓ ]".green().bold(), x.blue().bold()).as_str());
+            println!(
+                "     {}",
+                format!("{} {}", "[ ✓ ]".green().bold(), x.blue().bold()).as_str()
+            );
         }
 
         ///
