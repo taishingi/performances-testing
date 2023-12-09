@@ -40,9 +40,9 @@ pub mod performances {
                     end,
                     v
                 );
-                Performances::output("The callback take less than the expected max time");
+                Self::output("The callback take less than the expected max time");
             }
-            Performances::output("End of f32 callback measure test");
+            Self::output("End of f32 callback measure test");
             self
         }
 
@@ -63,9 +63,9 @@ pub mod performances {
                     end,
                     v
                 );
-                Performances::output("The callback take less than the expected max time");
+                Self::output("The callback take less than the expected max time");
             }
-            Performances::output("End of f64 callback measure test");
+            Self::output("End of f64 callback measure test");
             self
         }
 
@@ -86,9 +86,9 @@ pub mod performances {
                     end,
                     v
                 );
-                Performances::output("The callback take less than the expected max time");
+                Self::output("The callback take less than the expected max time");
             }
-            Performances::output("End of nanos callback measure test");
+            Self::output("End of nanos callback measure test");
             self
         }
 
@@ -108,9 +108,9 @@ pub mod performances {
                     end,
                     v
                 );
-                Performances::output("The callback take less than the expected max time");
+                Self::output("The callback take less than the expected max time");
             }
-            Performances::output("End of micros callback measure test");
+            Self::output("End of micros callback measure test");
             self
         }
 
@@ -130,9 +130,9 @@ pub mod performances {
                     end,
                     v
                 );
-                Performances::output("The callback take less than the expected max time");
+                Self::output("The callback take less than the expected max time");
             }
-            Performances::output("End of millis callback measure test");
+            Self::output("End of millis callback measure test");
             self
         }
 
@@ -152,9 +152,9 @@ pub mod performances {
                     end,
                     v
                 );
-                Performances::output("The callback take less than the expected max time");
+                Self::output("The callback take less than the expected max time");
             }
-            Performances::output("End of secs callback measure test");
+            Self::output("End of secs callback measure test");
             self
         }
 
@@ -171,111 +171,57 @@ pub mod performances {
         ///
         /// # End of the test
         ///
-        pub fn end(&mut self) -> Result<String, String> {
+        pub fn end(&mut self) -> Result<(), String> {
             println!();
-            Ok(String::from("ok"))
+            Ok(())
         }
     }
 
     #[macro_export]
     macro_rules! millis {
         ($callbacks:expr) => {
-            for (&k, &v) in $callbacks.iter() {
-                let now: Instant = Instant::now();
-                k();
-                let end: u128 = now.elapsed().as_millis();
-                assert!(
-                    end < v,
-                    "A callback take {} ms and the expected time is {} ms",
-                    end,
-                    v
-                );
-            }
+            let mut p = Performances::default();
+            assert!(p.millis($callbacks).end().is_ok());
         };
     }
 
     #[macro_export]
     macro_rules! micros {
         ($callbacks:expr) => {
-            for (&k, &v) in $callbacks.iter() {
-                let now: Instant = Instant::now();
-                k();
-                let end: u128 = now.elapsed().as_micros();
-                assert!(
-                    end < v,
-                    "A callback take {} µs and the expected time is {} µs",
-                    end,
-                    v
-                );
-            }
+            let mut p = Performances::default();
+            assert!(p.micros($callbacks).end().is_ok());
         };
     }
 
     #[macro_export]
     macro_rules! nanos {
         ($callbacks:expr) => {
-            for (&k, &v) in $callbacks.iter() {
-                let now: Instant = Instant::now();
-                k();
-                let end: u128 = now.elapsed().as_nanos();
-                assert!(
-                    end < v,
-                    "A callback take {} ns and the expected time is {} ns",
-                    end,
-                    v
-                );
-            }
+            let mut p = Performances::default();
+            assert!(p.nanos($callbacks).end().is_ok());
         };
     }
 
     #[macro_export]
     macro_rules! f32 {
         ($callbacks:expr) => {
-            for (&k, &v) in $callbacks.iter() {
-                let now: Instant = Instant::now();
-                k();
-                let end: f32 = now.elapsed().as_secs_f32();
-                assert!(
-                    end < v,
-                    "A callback take {} f32s and the expected time is {} f32s",
-                    end,
-                    v
-                );
-            }
+            let mut p = Performances::default();
+            assert!(p.f32($callbacks).end().is_ok());
         };
     }
 
     #[macro_export]
     macro_rules! f64 {
         ($callbacks:expr) => {
-            for (&k, &v) in $callbacks.iter() {
-                let now: Instant = Instant::now();
-                k();
-                let end: f64 = now.elapsed().as_secs_f64();
-                assert!(
-                    end < v,
-                    "A callback take {} f64s and the expected time is {} f64s",
-                    end,
-                    v
-                );
-            }
+            let mut p = Performances::default();
+            assert!(p.f64($callbacks).end().is_ok());
         };
     }
 
     #[macro_export]
     macro_rules! secs {
         ($callbacks:expr) => {
-            for (&k, &v) in $callbacks.iter() {
-                let now: Instant = Instant::now();
-                k();
-                let end: u64 = now.elapsed().as_secs();
-                assert!(
-                    end < v,
-                    "A callback take {} s and the expected time is {} s",
-                    end,
-                    v
-                );
-            }
+            let mut p = Performances::default();
+            assert!(p.secs($callbacks).end().is_ok());
         };
     }
 }

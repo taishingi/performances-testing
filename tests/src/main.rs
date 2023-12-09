@@ -1,8 +1,10 @@
 use performances::performances::Performances;
+use performances::{f32, f64, micros, millis, nanos, secs};
 use std::collections::HashMap;
 use std::process::{exit, ExitCode};
 use std::thread::sleep;
 use std::time::Duration;
+
 
 fn live() {
     let t = Duration::from_secs_f32(7.0f32);
@@ -80,15 +82,12 @@ fn main() -> ExitCode {
     callback_secs.insert(chipper, 2);
     callback_secs.insert(www, 3);
 
-    let mut p: Performances = Performances::default();
-
-    p.f32(callback_f32);
-    p.f64(callback_f64);
-    p.nanos(callback_nanos);
-    p.millis(callback_millis);
-    p.micros(callback_micros);
-    p.secs(callback_secs);
-    assert!(p.end().is_ok());
+    f32!(callback_f32);
+    f64!(callback_f64);
+    nanos!(callback_nanos);
+    millis!(callback_millis);
+    micros!(callback_micros);
+    secs!(callback_secs);
 
     exit(0);
 }
