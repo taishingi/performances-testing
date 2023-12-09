@@ -5,7 +5,6 @@ use std::process::{exit, ExitCode};
 use std::thread::sleep;
 use std::time::Duration;
 
-
 fn live() {
     let t = Duration::from_secs_f32(7.0f32);
     sleep(t);
